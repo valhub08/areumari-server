@@ -2,8 +2,10 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/Areumaridb?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: Amgfaa289!@
+    username: ${username}
+    password: ${password}
+    hikari:
+      maximum-pool-size: 20
 
   jpa:
     open-in-view: true
@@ -11,7 +13,7 @@ spring:
       ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
+    show-sql: true  # 또는 false로 설정
     properties:
       hibernate.format_sql: true
       dialect: org.hibernate.dialect.MySQL8InnoDBDialect
@@ -21,4 +23,8 @@ logging:
     org.hibernate.SQL: debug
 
 jwt:
-  secret: 95c6e1ece4c966fbfeaa4b040e55b671ced824cbe8d49c099e3c9faf30eb6662
+  secret: ${secret}
+
+  redis:
+    host: localhost
+    port: 6380
