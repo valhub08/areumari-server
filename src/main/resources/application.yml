@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/Areumaridb?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://mysql:3306/areumaridb?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: ${username}
     password: ${password}
     hikari:
@@ -10,7 +10,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true  # 또는 false로 설정
@@ -26,5 +26,6 @@ jwt:
   secret: ${secret}
 
   redis:
-    host: localhost
+    host: redis
     port: 6380
+
